@@ -76,6 +76,11 @@ object Part1 {
 
   // 1.9 Implement the Monoid typeclass for Strings and give an example usage with aggregateValidM (.5pts)
 
+  implicit object MonoidStrings extends Monoid[String] {
+    def empty = ""
+    def combine(x: String, y: String) = x + y
+  }
+
   // 1.10 Refactor the following object oriented hierarchy with an ADT (1.5pts)
   abstract class FinancialAsset {
     def computeEarnings: Double
